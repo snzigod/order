@@ -4,8 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-	<classPathEntry
-		location="D:/Software/instantclient/instantclient_12_1/ojdbc6.jar" />
+	<classPathEntry location="${path}/ojdbc6.jar" />
 	<context id="my" targetRuntime="MyBatis3">
 		<commentGenerator>
 			<property name="suppressDate" value="false" />
@@ -13,10 +12,10 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@172.16.16.96:1521:orcl" userId="nafc_bh"
-			password="qwe123" />
+			connectionURL="jdbc:oracle:thin:@xxx.xxx.xxx.xxx:1521:orcl" userId="xxx"
+			password="xxxxxx" />
 
-		<javaModelGenerator targetPackage="com.iflytek.sgy.social.order.entity"
+		<javaModelGenerator targetPackage="com.sn.smart.order.entity"
 			targetProject="./src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
@@ -26,7 +25,7 @@
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.iflytek.sgy.social.order.dao"
+		<javaClientGenerator targetPackage="com.sn.smart.order.dao"
 			targetProject="./src/main/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
@@ -38,18 +37,6 @@
 		</table>
 
 		<table tableName="T_ORDER_EXTENSION" domainObjectName="OrderExtension"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-		</table>
-
-		<table tableName="T_ORDER_PRODUCT_EXTENSION" domainObjectName="OrderProductExtension"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-		</table>
-
-		<table tableName="T_ORDER_RECEIVER_EXTENSION" domainObjectName="OrderReceiverExtension"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">

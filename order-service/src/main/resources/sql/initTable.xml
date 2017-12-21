@@ -74,7 +74,7 @@
 			'是否存在子订单，0 否 1是 ，默认0。';
 
 			comment on column T_ORDER.SYSTEM_CODE is
-			'系统编码，每个接入系统对应一个系统编号，系统编号规则：总长度6位，系统标识+数字补全。例如：池州旅游系统标识为ST，系统编码则可以定义为ST0001。';
+			'系统编码，每个接入系统对应一个系统编号，系统编号规则：总长度6位，系统标识+数字补全。
 
 			comment on column T_ORDER.SYSTEM_NAME is
 			'系统名称。';
@@ -265,84 +265,6 @@
 
 			comment on column
 			T_ORDER_EXTENSION.REMARK is
-			'描述';
-
-		</sql>
-	</table>
-	<table id="t_order_product_extension">
-		<check>T_ORDER_PRODUCT_EXTENSION</check>
-		<sql>
-			create table T_ORDER_PRODUCT_EXTENSION
-			(
-			ID VARCHAR2(32) not null,
-			ORDER_ID VARCHAR2(32),
-			KEY VARCHAR2(32),
-			VALUE VARCHAR2(4000),
-			REMARK
-			VARCHAR2(1000),
-			constraint PK_T_ORDER_PRODUCT_EXTENSION primary key
-			(ID)
-			);
-
-			comment on table T_ORDER_PRODUCT_EXTENSION is
-			'用于存储商品属性扩展信息';
-
-			comment on column T_ORDER_PRODUCT_EXTENSION.ID is
-			'扩展ID';
-
-			comment on
-			column T_ORDER_PRODUCT_EXTENSION.ORDER_ID is
-			'订单ID';
-
-			comment on column
-			T_ORDER_PRODUCT_EXTENSION.KEY is
-			'扩展key值';
-
-			comment on column
-			T_ORDER_PRODUCT_EXTENSION.VALUE is
-			'扩展value值';
-
-			comment on column
-			T_ORDER_PRODUCT_EXTENSION.REMARK is
-			'描述';
-
-		</sql>
-	</table>
-	<table id="t_order_receiver_extension">
-		<check>T_ORDER_RECEIVER_EXTENSION</check>
-		<sql>
-			create table T_ORDER_RECEIVER_EXTENSION
-			(
-			ID VARCHAR2(32) not null,
-			ORDER_ID VARCHAR2(32),
-			KEY VARCHAR2(32),
-			VALUE VARCHAR2(4000),
-			REMARK
-			VARCHAR2(1000),
-			constraint PK_T_ORDER_RECEIVER_EXTENSION primary key
-			(ID)
-			);
-
-			comment on table T_ORDER_RECEIVER_EXTENSION is
-			'用于存储收货人属性扩展信息';
-
-			comment on column T_ORDER_RECEIVER_EXTENSION.ID is
-			'扩展ID';
-
-			comment on
-			column T_ORDER_RECEIVER_EXTENSION.ORDER_ID is
-			'订单ID';
-
-			comment on column
-			T_ORDER_RECEIVER_EXTENSION.KEY is
-			'扩展key值';
-
-			comment on column
-			T_ORDER_RECEIVER_EXTENSION.VALUE is
-			'扩展value值';
-
-			comment on column
-			T_ORDER_RECEIVER_EXTENSION.REMARK is
 			'描述';
 
 		</sql>
