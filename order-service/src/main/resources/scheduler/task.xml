@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks>
+	<task>
+		<!-- this is an example -->
+		<name>定时刷新任务</name>
+		<sql>select * from dual</sql>
+		<cron>0/10 * * * * ? </cron>
+	</task>
+</tasks>

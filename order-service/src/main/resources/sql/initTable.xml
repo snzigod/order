@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables id="initTable" name="初始化表结构">
+	<table id="t_order">
+		<check>T_ORDER</check>
+		<sql>
+			create table T_ORDER
+			(
+			ID VARCHAR2(32) not null,
+			PARENT_ID VARCHAR2(32),
+			MAIN_ORDER_FLAG NUMBER(1) default 1,
+			HAS_CHILD_FLAG NUMBER(1) default 0,
+			SYSTEM_CODE VARCHAR2(32),
+			SYSTEM_NAME VARCHAR2(200),
+			AREA_CODE VARCHAR2(32),
+			AREA_NAME VARCHAR2(200),
+			ORDER_NO VARCHAR2(32),
+			TRADE_NO VARCHAR2(32),
+			ORDER_NAME VARCHAR2(200),
+			ORDER_TYPE NUMBER(2),
+			ORDER_TYPE_NAME VARCHAR2(200),
+			ORDER_REMARK VARCHAR2(1000),
+			MERCHANT_ID VARCHAR2(32),
+			MERCHANT_NAME VARCHAR2(200),
+			MERCHANT_IMG_URL VARCHAR2(200),
+			BRANCH_ID VARCHAR2(32),
+			BRANCH_NAME VARCHAR2(200),
+			BRANCH_IMG_URL VARCHAR2(200),
+			PRODUCT_ID VARCHAR2(32),
+			PRODUCT_NAME VARCHAR2(200),
+			PRODUCT_IMG_URL VARCHAR2(200),
+			PRODUCT_PRICE NUMBER(10,2) default 0,
+			PRODUCT_NUM NUMBER(5) default 1,
+			PRODUCT_TOTAL_PRICE NUMBER(10,2) default 0,
+			COUPON_AMOUNT NUMBER(10,2) default 0,
+			CARRIAGE_FEE NUMBER(10,2) default 0,
+			CASHBACK_AMOUNT NUMBER(10,2) default 0,
+			GIFT_CARD_AMOUNT NUMBER(10,2) default 0,
+			REFUND_AMOUNT NUMBER(10,2) default 0,
+			ACTUAL_PAID_AMOUNT NUMBER(10,2) default 0,
+			ORDER_STATE NUMBER(2) default 1,
+			SERVICE_STATE NUMBER(2),
+			SUPPORT_EXCHANGE_FLAG NUMBER(1) default 0,
+			SUPPORT_REFUND_FLAG NUMBER(1) default 0,
+			SUPPORT_BILLING_FLAG NUMBER(1) default 0,
+			SUPPORT_SELL_FLAG NUMBER(1) default 0,
+			BILLING_FLAG NUMBER(1) default 0,
+			SELL_FLAG NUMBER(1) default 0,
+			SUPPORT_SERVICE_FLAG NUMBER(1) default 0,
+			SERVICE_FLAG NUMBER(1) default 0,
+			EVALUATE_FLAG NUMBER(1) default 0,
+			PRODUCT_USER_NUM NUMBER(5) default 1,
+			CREATE_USER VARCHAR2(32),
+			CREATE_TIME DATE,
+			ORDER_SOURCE NUMBER(2),
+			LOGISTICS_ID VARCHAR2(100),
+			MODIFY_USER VARCHAR2(32),
+			MODIFY_TIME DATE,
+			constraint PK_T_ORDER primary key (ID)
+			);
+
+			comment on table T_ORDER is
+			'订单信息表';
+
+			comment on column T_ORDER.ID is
+			'订单ID。';
+
+			comment on column T_ORDER.PARENT_ID is
+			'父级订单ID，不存在父级订单时为空。';
+
+			comment on column T_ORDER.MAIN_ORDER_FLAG is
+			'主订单标志，0 否 1是 ，默认1。';
+
+			comment on column T_ORDER.HAS_CHILD_FLAG is
+			'是否存在子订单，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SYSTEM_CODE is
+			'系统编码，每个接入系统对应一个系统编号，系统编号规则：总长度6位，系统标识+数字补全。例如：池州旅游系统标识为ST，系统编码则可以定义为ST0001。';
+
+			comment on column T_ORDER.SYSTEM_NAME is
+			'系统名称。';
+
+			comment on column T_ORDER.AREA_CODE is
+			'区域编码。';
+
+			comment on column T_ORDER.AREA_NAME is
+			'区域名称。';
+
+			comment on column T_ORDER.ORDER_NO is
+			'订单号，生成规则：系统编号6位+订单来源1位+业务类型1位+时间戳8位+订单ID后4位并转大写，总共20位。';
+
+			comment on column T_ORDER.TRADE_NO is
+			'为用户进行支付时，生成的支付订单号，是此笔支付的唯一标识。';
+
+			comment on column T_ORDER.ORDER_NAME is
+			'订单名称。';
+
+			comment on column T_ORDER.ORDER_TYPE is
+			'订单类型，具体由接入系统业务确定。';
+
+			comment on column T_ORDER.ORDER_TYPE_NAME is
+			'订单类型名称，具体由接入系统业务确定。';
+
+			comment on column T_ORDER.ORDER_REMARK is
+			'订单说明。';
+
+			comment on column T_ORDER.MERCHANT_ID is
+			'商家ID。';
+
+			comment on column T_ORDER.MERCHANT_NAME is
+			'商家名称。';
+
+			comment on column T_ORDER.MERCHANT_IMG_URL is
+			'商家缩略图地址。';
+
+			comment on column T_ORDER.BRANCH_ID is
+			'网点ID。';
+
+			comment on column T_ORDER.BRANCH_NAME is
+			'网点名称。';
+
+			comment on column T_ORDER.BRANCH_IMG_URL is
+			'网店缩略图。';
+
+			comment on column T_ORDER.PRODUCT_ID is
+			'商家ID。';
+
+			comment on column T_ORDER.PRODUCT_NAME is
+			'商家名称。';
+
+			comment on column T_ORDER.PRODUCT_IMG_URL is
+			'商家缩略图地址。';
+
+			comment on column T_ORDER.PRODUCT_PRICE is
+			'商品购买单价，默认0。';
+
+			comment on column T_ORDER.PRODUCT_NUM is
+			'商品购买个数，默认1。';
+
+			comment on column T_ORDER.PRODUCT_TOTAL_PRICE is
+			'商品总价，默认0。';
+
+			comment on column T_ORDER.COUPON_AMOUNT is
+			'优惠券金额，默认0。';
+
+			comment on column T_ORDER.CARRIAGE_FEE is
+			'运费金额，默认0。';
+
+			comment on column T_ORDER.CASHBACK_AMOUNT is
+			'返现金额，默认0。';
+
+			comment on column T_ORDER.GIFT_CARD_AMOUNT is
+			'礼品卡金额，默认0。';
+
+			comment on column T_ORDER.REFUND_AMOUNT is
+			'退款金额，默认0。';
+
+			comment on column T_ORDER.ACTUAL_PAID_AMOUNT is
+			'实际付款金额，默认0。';
+
+			comment on column T_ORDER.ORDER_STATE is
+			'订单状态，0 已删除、1 已生成、2 已取消、3 已付款、4 已退款、5 已发货、6 已完成。默认1。';
+
+			comment on column T_ORDER.SERVICE_STATE is
+			'业务状态，包含订单状态，主要用于扩展订单状态，具体规则由业务系统确定。';
+
+			comment on column T_ORDER.SUPPORT_EXCHANGE_FLAG is
+			'是否支持退换，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SUPPORT_REFUND_FLAG is
+			'是否支持退款，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SUPPORT_BILLING_FLAG is
+			'是否支持发票，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SUPPORT_SELL_FLAG is
+			'是否支持转手，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.BILLING_FLAG is
+			'开具发票标志，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SELL_FLAG is
+			'转手标志，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SUPPORT_SERVICE_FLAG is
+			'是否支持售后，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.SERVICE_FLAG is
+			'售后标志，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.EVALUATE_FLAG is
+			'是否评价，0 否 1是 ，默认0。';
+
+			comment on column T_ORDER.PRODUCT_USER_NUM is
+			'商品使用人数，具体可根据业务系统需要确定，默认1。';
+
+			comment on column T_ORDER.CREATE_USER is
+			'下单人ID。';
+
+			comment on column T_ORDER.CREATE_TIME is
+			'下单时间。';
+
+			comment on column T_ORDER.ORDER_SOURCE is
+			'订单来源：1 WEB门户、2 Android、3 IOS、4 微信。';
+
+			comment on column T_ORDER.LOGISTICS_ID is
+			'物流ID（存在物流公司时，按【物流公司编号|物流编号】 存）。';
+
+			comment on column T_ORDER.MODIFY_USER is
+			'修改人ID。';
+
+			comment on column T_ORDER.MODIFY_TIME is
+			'修改时间。';
+
+			create index "index_order_name" on T_ORDER (
+			ORDER_NAME ASC
+			);
+
+			create index "index_order_state" on T_ORDER (
+			ORDER_STATE ASC
+			);
+
+			create index "index_order_no" on T_ORDER (
+			ORDER_NO ASC
+			);
+
+			create index "index_create_time" on T_ORDER (
+			CREATE_TIME ASC
+			);
+
+		</sql>
+	</table>
+	<table id="t_order_extension">
+		<check>T_ORDER_EXTENSION</check>
+		<sql>
+			create table T_ORDER_EXTENSION
+			(
+			ID VARCHAR2(32) not null,
+			ORDER_ID
+			VARCHAR2(32),
+			KEY VARCHAR2(32),
+			VALUE clob,
+			REMARK VARCHAR2(1000),
+			constraint PK_T_ORDER_EXTENSION primary key (ID)
+			);
+
+			comment on table
+			T_ORDER_EXTENSION is
+			'用于存储订单介绍、订单合同等复杂信息。';
+
+			comment on column
+			T_ORDER_EXTENSION.ID is
+			'扩展ID';
+
+			comment on column
+			T_ORDER_EXTENSION.ORDER_ID is
+			'订单ID';
+
+			comment on column
+			T_ORDER_EXTENSION.KEY is
+			'扩展key值';
+
+			comment on column
+			T_ORDER_EXTENSION.VALUE is
+			'扩展value值';
+
+			comment on column
+			T_ORDER_EXTENSION.REMARK is
+			'描述';
+
+		</sql>
+	</table>
+	<table id="t_order_product_extension">
+		<check>T_ORDER_PRODUCT_EXTENSION</check>
+		<sql>
+			create table T_ORDER_PRODUCT_EXTENSION
+			(
+			ID VARCHAR2(32) not null,
+			ORDER_ID VARCHAR2(32),
+			KEY VARCHAR2(32),
+			VALUE VARCHAR2(4000),
+			REMARK
+			VARCHAR2(1000),
+			constraint PK_T_ORDER_PRODUCT_EXTENSION primary key
+			(ID)
+			);
+
+			comment on table T_ORDER_PRODUCT_EXTENSION is
+			'用于存储商品属性扩展信息';
+
+			comment on column T_ORDER_PRODUCT_EXTENSION.ID is
+			'扩展ID';
+
+			comment on
+			column T_ORDER_PRODUCT_EXTENSION.ORDER_ID is
+			'订单ID';
+
+			comment on column
+			T_ORDER_PRODUCT_EXTENSION.KEY is
+			'扩展key值';
+
+			comment on column
+			T_ORDER_PRODUCT_EXTENSION.VALUE is
+			'扩展value值';
+
+			comment on column
+			T_ORDER_PRODUCT_EXTENSION.REMARK is
+			'描述';
+
+		</sql>
+	</table>
+	<table id="t_order_receiver_extension">
+		<check>T_ORDER_RECEIVER_EXTENSION</check>
+		<sql>
+			create table T_ORDER_RECEIVER_EXTENSION
+			(
+			ID VARCHAR2(32) not null,
+			ORDER_ID VARCHAR2(32),
+			KEY VARCHAR2(32),
+			VALUE VARCHAR2(4000),
+			REMARK
+			VARCHAR2(1000),
+			constraint PK_T_ORDER_RECEIVER_EXTENSION primary key
+			(ID)
+			);
+
+			comment on table T_ORDER_RECEIVER_EXTENSION is
+			'用于存储收货人属性扩展信息';
+
+			comment on column T_ORDER_RECEIVER_EXTENSION.ID is
+			'扩展ID';
+
+			comment on
+			column T_ORDER_RECEIVER_EXTENSION.ORDER_ID is
+			'订单ID';
+
+			comment on column
+			T_ORDER_RECEIVER_EXTENSION.KEY is
+			'扩展key值';
+
+			comment on column
+			T_ORDER_RECEIVER_EXTENSION.VALUE is
+			'扩展value值';
+
+			comment on column
+			T_ORDER_RECEIVER_EXTENSION.REMARK is
+			'描述';
+
+		</sql>
+	</table>
+	<table id="t_order_log">
+		<check>T_ORDER_LOG</check>
+		<sql>
+			create table T_ORDER_LOG
+			(
+			ID VARCHAR2(32) not null,
+			ORDER_ID
+			VARCHAR2(32),
+			SERVICE_STATE NUMBER(2),
+			ORDER_STATE NUMBER(2),
+			OPERATE_SERVICE_STATE NUMBER(2),
+			OPERATE_STATE NUMBER(2),
+			REMARK
+			VARCHAR2(1000),
+			CREATE_USER VARCHAR2(32),
+			CREATE_TIME DATE,
+			constraint
+			PK_T_ORDER_LOG primary key (ID)
+			);
+
+			comment on table T_ORDER_LOG is
+			'订单日志表';
+
+			comment on column T_ORDER_LOG.ID is
+			'日志ID';
+
+			comment on column
+			T_ORDER_LOG.ORDER_ID is
+			'订单ID';
+
+			comment on column
+			T_ORDER_LOG.SERVICE_STATE is
+			'业务状态';
+
+			comment on column
+			T_ORDER_LOG.ORDER_STATE is
+			'订单状态';
+
+			comment on column
+			T_ORDER_LOG.OPERATE_SERVICE_STATE is
+			'操作业务状态,订单操作要产生的业务状态.';
+
+			comment on
+			column T_ORDER_LOG.OPERATE_STATE is
+			'操作状态,订单操作要产生的状态.';
+
+			comment on
+			column T_ORDER_LOG.REMARK is
+			'日志描述';
+
+			comment on column
+			T_ORDER_LOG.CREATE_USER is
+			'操作人编号';
+
+			comment on column
+			T_ORDER_LOG.CREATE_TIME is
+			'日志时间';
+
+		</sql>
+	</table>
+	<table id="t_order_user">
+		<check>T_ORDER_USER</check>
+		<sql>
+			create table T_ORDER_USER
+			(
+			ID VARCHAR2(32) not null,
+			NAME VARCHAR2(200),
+			LOGIN_NAME VARCHAR2(200),
+			ID_CARD VARCHAR2(20),
+			PHONE_NO VARCHAR2(32),
+			constraint PK_T_ORDER_USER primary key (ID),
+			constraint AK_KEY_2_T_ORDER unique (LOGIN_NAME)
+			);
+		
+			comment on table T_ORDER_USER is
+			'订单用户信息表（缓存uaac用户信息）';
+		
+			comment on column T_ORDER_USER.ID is
+			'用户ID';
+		
+			comment on column T_ORDER_USER.NAME is
+			'名称';
+		
+			comment on column T_ORDER_USER.LOGIN_NAME is
+			'登录名';
+		
+			comment on column T_ORDER_USER.ID_CARD is
+			'身份证号码';
+		
+			comment on column T_ORDER_USER.PHONE_NO is
+			'手机号';
+		</sql>
+	</table>
+</tables>
