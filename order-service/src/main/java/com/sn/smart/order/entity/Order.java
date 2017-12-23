@@ -1,6 +1,5 @@
-package com.sn.smart.order.dto;
+package com.sn.smart.order.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,12 +12,7 @@ import lombok.Data;
  * 
  */
 @Data
-public class OrderDto implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4955017879963271315L;
+public class Order {
 	/**
 	 * 订单ID。
 	 */
@@ -28,16 +22,15 @@ public class OrderDto implements Serializable {
 	 */
 	private String parentId;
 	/**
-	 * 是否存在子订单，0 否 1是 ，默认0。
-	 */
-	private Short hasChildFlag;
-	/**
 	 * 主订单标志，0 否 1是 ，默认1。
 	 */
 	private Short mainOrderFlag;
 	/**
-	 * 系统编码，每个接入系统对应一个系统编号，根据具体业务确定，建议系统编号规则：总长度6位，系统标识+数字补全。例如：池州旅游系统标识为ST，
-	 * 系统编码则可以定义为ST0001。
+	 * 是否存在子订单，0 否 1是 ，默认0。
+	 */
+	private Short hasChildFlag;
+	/**
+	 * 系统编码，每个接入系统对应一个系统编号，根据具体业务确定，建议系统编号规则：总长度6位，系统标识+数字补全。
 	 */
 	private String systemCode;
 	/**
@@ -201,7 +194,7 @@ public class OrderDto implements Serializable {
 	 */
 	private String createUser;
 	/**
-	 * 下单人名称。
+	 * 下单人名称
 	 */
 	private String createUserName;
 	/**
@@ -221,7 +214,7 @@ public class OrderDto implements Serializable {
 	 */
 	private String modifyUser;
 	/**
-	 * 修改人名称。
+	 * 修改人名称
 	 */
 	private String modifyUserName;
 	/**

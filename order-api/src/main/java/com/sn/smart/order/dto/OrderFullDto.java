@@ -1,30 +1,44 @@
 package com.sn.smart.order.dto;
 
-public class OrderFullDto<T> {
+import java.io.Serializable;
+
+/**
+ * 订单信息
+ * 
+ * @author snzigod@hotmail.com
+ * @param <T>
+ * 
+ */
+public class OrderFullDto<T> implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2249356706047014859L;
 
 	/**
 	 * 订单信息
 	 */
-	private OrderDto orderDto;
+	private OrderDto order;
 	/**
 	 * 订单扩展信息
 	 */
-	private T orderExtensionDto;
+	private T orderExtension;
 
-	public OrderDto getOrderDto() {
-		return orderDto;
+	public OrderDto getOrder() {
+		return order;
 	}
 
-	public void setOrderDto(OrderDto orderDto) {
-		this.orderDto = orderDto;
+	public void setOrder(OrderDto order) {
+		this.order = order;
 	}
 
-	public T getOrderExtensionDto() {
-		return orderExtensionDto;
+	public T getOrderExtension() {
+		return orderExtension;
 	}
 
-	public void setOrderExtensionDto(T orderExtensionDto) {
-		this.orderExtensionDto = orderExtensionDto;
+	public void setOrderExtension(T orderExtension) {
+		this.orderExtension = orderExtension;
 	}
 
 }
