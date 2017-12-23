@@ -5,4 +5,11 @@
 	<typeAliases>
 		<package name="com.sn.smart.order.entity" />
 	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.sn.smart.order.utils.paginator.PageInterceptor">
+			<property name="dialectClass"
+				value="com.sn.smart.order.utils.paginator.dialect.OracleDialect" />
+		</plugin>
+	</plugins>
 </configuration>

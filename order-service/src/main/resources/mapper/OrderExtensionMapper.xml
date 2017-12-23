@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.smart.order.dao.OrderExtensionDao">
+
+	<resultMap id="BaseResultMap" type="com.iflytek.sgy.social.order.entity.OrderExtension">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="order_id" property="orderId" jdbcType="VARCHAR" />
+		<result column="key" property="key" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="ResultMapWithBLOBs" type="com.iflytek.sgy.social.order.entity.OrderExtension" extends="BaseResultMap">
+		<result column="VALUE" property="value" jdbcType="CLOB" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, order_id, key, remark
+	</sql>
+
+	<sql id="Blob_Column_List">
+		value
+	</sql>
+
+	<select id="getOrderExtensionPageListByOrderId" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_order_extension
+		where order_id = #{orderId}
+	</select>
+
+	<delete id="delOrderExtensionByOrderId">
+		delete from t_order_extension where order_id = #{orderId}
+	</delete>
+
+	<insert id="bachInsertOrderExtension" parameterType="com.iflytek.sgy.social.order.entity.OrderExtension">
+		begin
+		<foreach collection="list" item="item" index="index" separator=";" close=";">
+			insert into t_order_extension
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="item.id != null">
+					id,
+				</if>
+				<if test="item.orderId != null">
+					order_id,
+				</if>
+				<if test="item.key != null">
+					key,
+				</if>
+				<if test="item.remark != null">
+					remark,
+				</if>
+				<if test="item.value != null">
+					value,
+				</if>
+			</trim>
+			<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="item.id != null">
+					#{item.id,jdbcType=VARCHAR},
+				</if>
+				<if test="item.orderId != null">
+					#{item.orderId,jdbcType=VARCHAR},
+				</if>
+				<if test="item.key != null">
+					#{item.key,jdbcType=VARCHAR},
+				</if>
+				<if test="item.remark != null">
+					#{item.remark,jdbcType=VARCHAR},
+				</if>
+				<if test="item.value != null">
+					#{item.value,jdbcType=CLOB},
+				</if>
+			</trim>
+		</foreach>
+		end;
+	</insert>
+
+</mapper>

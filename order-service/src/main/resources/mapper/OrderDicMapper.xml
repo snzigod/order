@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.smart.order.dao.OrderDicDao">
+
+	<select id="getOrderDicPageList" resultType="com.iflytek.sgy.social.order.dto.OrderDicDto">
+		select distinct
+		${dicKeyClumn} as key,
+		${dicValueClumn} as value
+		from
+		t_order
+		<if test="orderConditionDto != null">
+			<include refid="com.sn.smart.order.dao.OrderDao.Common_Where"/>
+		</if>
+		${dicSortClumn}
+	</select>
+
+</mapper>

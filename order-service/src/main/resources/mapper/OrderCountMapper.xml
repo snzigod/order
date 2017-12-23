@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.smart.order.dao.OrderCountDao">
+
+	<sql id="Common_From">
+		from t_order
+		<include refid="com.sn.smart.order.dao.OrderDao.Common_Where" />
+	</sql>
+
+	<sql id="Common_Multi_From">
+		<foreach collection="orderCountMultiConditionDto.orderCountConditionList"
+			item="orderConditionDto" index="index" open="from (" separator="union all"
+			close=")">
+			select
+			<include refid="com.sn.smart.order.dao.OrderDao.Base_Column_List" />
+			from t_order
+			<include refid="com.sn.smart.order.dao.OrderDao.Common_Where" />
+		</foreach>
+	</sql>
+
+	<select id="getOrderCountByCondition" resultType="java.lang.String">
+		select ${countClumn}
+		<include refid="Common_From"></include>
+	</select>
+
+	<select id="getOrderCountByMultiCondition" resultType="java.lang.String">
+		select ${countClumn}
+		<include refid="Common_Multi_From"></include>
+	</select>
+
+	<select id="getOrderCountsByCondition" resultType="java.lang.String">
+		<foreach collection="countClumnList" item="item" index="index"
+			open="select" separator="|| ',' ||">
+			${item}
+		</foreach>
+		<include refid="Common_From"></include>
+	</select>
+
+	<select id="getOrderCountsByMultiCondition" resultType="java.lang.String">
+		<foreach collection="countClumnList" item="item" index="index"
+			open="select" separator="|| ',' ||">
+			${item}
+		</foreach>
+		<include refid="Common_Multi_From"></include>
+	</select>
+
+	<select id="getOrderCountPageListByCondition"
+		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		select
+		<if test="countDimensionClumn != null">
+			${countDimensionClumn} as xpoint,
+		</if>
+		${countClumn} as ypoint
+		<include refid="Common_From"></include>
+		<if test="countDimensionClumn != null">
+			group by ${countDimensionClumn}
+		</if>
+		<if test="countOrderClumn != null">
+			order by ${countOrderClumn}
+		</if>
+	</select>
+
+	<select id="getOrderCountPageListByMultiCondition"
+		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		select
+		<if test="countDimensionClumn != null">
+			${countDimensionClumn} as xpoint,
+		</if>
+		${countClumn} as ypoint
+		<include refid="Common_Multi_From"></include>
+		<if test="countDimensionClumn != null">
+			group by ${countDimensionClumn}
+		</if>
+		<if test="countOrderClumn != null">
+			order by ${countOrderClumn}
+		</if>
+	</select>
+
+	<select id="getOrderCountsPageListByCondition"
+		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		select
+		<if test="countDimensionClumn != null">
+			${countDimensionClumn} as xpoint,
+		</if>
+		<foreach collection="countClumnList" item="item" index="index"
+			separator="|| ',' ||">
+			${item}
+		</foreach>
+		as ypoint
+		<include refid="Common_From"></include>
+		<if test="countDimensionClumn != null">
+			group by ${countDimensionClumn}
+		</if>
+		<if test="countOrderClumnList != null">
+			order by
+			<foreach collection="countOrderClumnList" item="item" index="index"
+				separator="|| ',' ||">
+				${item}
+			</foreach>
+		</if>
+	</select>
+
+	<select id="getOrderCountsPageListByMultiCondition"
+		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		select
+		<if test="countDimensionClumn != null">
+			${countDimensionClumn} as xpoint,
+		</if>
+		<foreach collection="countClumnList" item="item" index="index"
+			separator="|| ',' ||">
+			${item}
+		</foreach>
+		as ypoint
+		<include refid="Common_Multi_From"></include>
+		<if test="countDimensionClumn != null">
+			group by ${countDimensionClumn}
+		</if>
+		<if test="countOrderClumnList != null">
+			order by
+			<foreach collection="countOrderClumnList" item="item" index="index"
+				separator="|| ',' ||">
+				${item}
+			</foreach>
+		</if>
+	</select>
+</mapper>
