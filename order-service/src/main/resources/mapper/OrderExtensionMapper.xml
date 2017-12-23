@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sn.smart.order.dao.OrderExtensionDao">
 
-	<resultMap id="BaseResultMap" type="com.iflytek.sgy.social.order.entity.OrderExtension">
+	<resultMap id="BaseResultMap" type="com.sn.smart.order.entity.OrderExtension">
 		<result column="id" property="id" jdbcType="VARCHAR" />
 		<result column="order_id" property="orderId" jdbcType="VARCHAR" />
 		<result column="key" property="key" jdbcType="VARCHAR" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
 	</resultMap>
 
-	<resultMap id="ResultMapWithBLOBs" type="com.iflytek.sgy.social.order.entity.OrderExtension" extends="BaseResultMap">
+	<resultMap id="ResultMapWithBLOBs" type="com.sn.smart.order.entity.OrderExtension" extends="BaseResultMap">
 		<result column="VALUE" property="value" jdbcType="CLOB" />
 	</resultMap>
 
@@ -34,7 +34,7 @@
 		delete from t_order_extension where order_id = #{orderId}
 	</delete>
 
-	<insert id="bachInsertOrderExtension" parameterType="com.iflytek.sgy.social.order.entity.OrderExtension">
+	<insert id="bachInsertOrderExtension" parameterType="com.sn.smart.order.entity.OrderExtension">
 		begin
 		<foreach collection="list" item="item" index="index" separator=";" close=";">
 			insert into t_order_extension

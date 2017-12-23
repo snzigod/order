@@ -14,8 +14,7 @@
 
 	<!-- 定义受环境影响易变的变量 -->
 	<context:property-placeholder
-		location="${file.type}:${profiles.environment}/config.properties"
-		file-encoding="UTF-8" />
+		location="classpath:/config/config.properties"/>
 
 	<aop:aspectj-autoproxy />
 

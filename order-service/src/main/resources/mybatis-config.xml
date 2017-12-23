@@ -7,9 +7,9 @@
 	</typeAliases>
 
 	<plugins>
-		<plugin interceptor="com.sn.smart.order.utils.paginator.PageInterceptor">
+		<plugin interceptor="com.sn.smart.core.paginator.PageInterceptor">
 			<property name="dialectClass"
-				value="com.sn.smart.order.utils.paginator.dialect.OracleDialect" />
+				value="com.sn.smart.core.paginator.dialect.OracleDialect" />
 		</plugin>
 	</plugins>
 </configuration>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sn.smart.order.dao.OrderDao">
 
-	<resultMap id="BaseResultMap" type="com.iflytek.sgy.social.order.entity.Order">
+	<resultMap id="BaseResultMap" type="com.sn.smart.order.entity.Order">
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="parent_id" property="parentId" jdbcType="VARCHAR" />
 		<result column="main_order_flag" property="mainOrderFlag" jdbcType="DECIMAL" />
@@ -343,7 +343,7 @@
 		order by create_time desc
 	</select>
 
-	<insert id="insertOrder" parameterType="com.iflytek.sgy.social.order.entity.Order">
+	<insert id="insertOrder" parameterType="com.sn.smart.order.entity.Order">
 		insert into t_order
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -964,7 +964,7 @@
 		end;
 	</insert>
 
-	<update id="updateOrderByIdOrNo" parameterType="com.iflytek.sgy.social.order.entity.Order">
+	<update id="updateOrderByIdOrNo" parameterType="com.sn.smart.order.entity.Order">
 		<if test="id != null || orderNo != null">
 			update t_order
 			<set>

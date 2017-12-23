@@ -45,7 +45,7 @@
 	</select>
 
 	<select id="getOrderCountPageListByCondition"
-		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		resultType="com.sn.smart.order.dto.OrderCountResultDto">
 		select
 		<if test="countDimensionClumn != null">
 			${countDimensionClumn} as xpoint,
@@ -61,7 +61,7 @@
 	</select>
 
 	<select id="getOrderCountPageListByMultiCondition"
-		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		resultType="com.sn.smart.order.dto.OrderCountResultDto">
 		select
 		<if test="countDimensionClumn != null">
 			${countDimensionClumn} as xpoint,
@@ -77,7 +77,7 @@
 	</select>
 
 	<select id="getOrderCountsPageListByCondition"
-		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		resultType="com.sn.smart.order.dto.OrderCountResultDto">
 		select
 		<if test="countDimensionClumn != null">
 			${countDimensionClumn} as xpoint,
@@ -101,7 +101,7 @@
 	</select>
 
 	<select id="getOrderCountsPageListByMultiCondition"
-		resultType="com.iflytek.sgy.social.order.dto.OrderCountResultDto">
+		resultType="com.sn.smart.order.dto.OrderCountResultDto">
 		select
 		<if test="countDimensionClumn != null">
 			${countDimensionClumn} as xpoint,
