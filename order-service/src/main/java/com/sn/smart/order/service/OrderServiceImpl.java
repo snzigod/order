@@ -16,6 +16,7 @@ import com.sn.smart.order.dto.OrderMultiConditionDto;
 public class OrderServiceImpl implements OrderService {
 
 	public String addOrder(OrderFullDto orderFullDto) {
+		System.out.println("=============================");
 		// TODO Auto-generated method stub
 		return null;
 	}
