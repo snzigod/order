@@ -9,7 +9,7 @@
 	<plugins>
 		<plugin interceptor="com.sn.smart.core.paginator.PageInterceptor">
 			<property name="dialectClass"
-				value="com.sn.smart.core.paginator.dialect.OracleDialect" />
+				value="com.sn.smart.core.paginator.dialect.MySQLDialect" />
 		</plugin>
 	</plugins>
 </configuration>
