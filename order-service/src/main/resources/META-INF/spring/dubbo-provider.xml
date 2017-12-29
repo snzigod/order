@@ -13,13 +13,16 @@
 	<description>Dubbo提供者配置</description>
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="${dubbo.provider.application.name}" owner="${dubbo.provider.application.owner}" />
+	<dubbo:application name="${dubbo.provider.application.name}"
+		owner="${dubbo.provider.application.owner}" />
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
-	<dubbo:registry address="${dubbo.registry.address}" check="false" timeout="${dubbo.registry.timeout}" />
+	<dubbo:registry address="${dubbo.registry.address}"
+		check="false" timeout="${dubbo.registry.timeout}" />
 
 	<!-- 远程服务调用超时时间 -->
-	<dubbo:provider timeout="${dubbo.provider.timeout}" version="${dubbo.service.version}" />
+	<dubbo:provider timeout="${dubbo.provider.timeout}"
+		version="${dubbo.service.version}" />
 
 	<!-- 用dubbo协议暴露服务 -->
 	<dubbo:protocol name="dubbo" port="${dubbo.dubbo.port}" />

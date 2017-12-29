@@ -4,7 +4,6 @@ import java.nio.charset.Charset;
 
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
-import org.springframework.util.Assert;
 
 public class RedisKeySerializer implements RedisSerializer<Object> {
 
@@ -15,7 +14,6 @@ public class RedisKeySerializer implements RedisSerializer<Object> {
 	}
 
 	public RedisKeySerializer(Charset charset) {
-		Assert.notNull(charset);
 		this.charset = charset;
 	}
 

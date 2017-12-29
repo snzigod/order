@@ -11,7 +11,7 @@ import com.sn.smart.order.api.OrderLogService;
 import com.sn.smart.order.dao.OrderLogDao;
 import com.sn.smart.order.dto.OrderLogDto;
 
-@Service(version = "${dubbo.service.version}")
+@Service
 public class OrderLogServiceImpl implements OrderLogService {
 
 	@Autowired

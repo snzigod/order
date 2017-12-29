@@ -12,7 +12,7 @@ import com.sn.smart.order.dto.OrderFullDto;
 import com.sn.smart.order.dto.OrderFullMultiDto;
 import com.sn.smart.order.dto.OrderMultiConditionDto;
 
-@Service(version = "${dubbo.service.version}")
+@Service
 public class OrderServiceImpl implements OrderService {
 
 	public String addOrder(OrderFullDto orderFullDto) {

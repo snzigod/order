@@ -27,7 +27,6 @@ public class OrderInit implements ApplicationListener<ContextRefreshedEvent> {
 	public static final Logger logger = LoggerFactory.getLogger(OrderInit.class);
 
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		if (true) return;
 		logger.info("====================Init table begin!====================");
 		executeSql(SqlType.TABLE);
 		logger.info("====================Init table end!====================");

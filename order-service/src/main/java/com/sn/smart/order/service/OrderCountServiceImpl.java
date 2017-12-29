@@ -21,7 +21,7 @@ import com.sn.smart.order.dto.OrderCountsDto;
 import com.sn.smart.order.dto.OrderCountsListDto;
 import com.sn.smart.utils.time.TimeSeparator;
 
-@Service(version = "${dubbo.service.version}")
+@Service
 public class OrderCountServiceImpl implements OrderCountService {
 
 	@Autowired

@@ -11,7 +11,7 @@ import com.sn.smart.order.constants.OrderDicEnum;
 import com.sn.smart.order.dao.OrderDicDao;
 import com.sn.smart.order.dto.OrderDicDto;
 
-@Service(version = "${dubbo.service.version}")
+@Service
 public class OrderDicServiceImpl implements OrderDicService {
 
 	@Autowired
