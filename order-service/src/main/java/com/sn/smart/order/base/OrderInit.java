@@ -72,7 +72,7 @@ public class OrderInit implements ApplicationListener<ContextRefreshedEvent> {
 		/**
 		 * 表结构
 		 */
-		TABLE("/sql/initTable.xml", "select count(1) from user_tables t where t.table_name = '" + replaceStr + "'"),
+		TABLE("/sql/initTable.xml", "select count(1) from information_schema.TABLES t where t.table_name = '" + replaceStr + "'"),
 		/**
 		 * 数据
 		 */
