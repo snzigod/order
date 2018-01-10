@@ -2,15 +2,12 @@ package com.sn.smart.order.entity;
 
 import java.util.Date;
 
-import lombok.Data;
-
 /**
  * 订单日志
  * 
  * @author snzigod@hotmail.com
  * 
  */
-@Data
 public class OrderLog {
 	/**
 	 * ID。
@@ -40,5 +37,61 @@ public class OrderLog {
 	 * 创建时间。
 	 */
 	private Date createTime;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public Short getOrderState() {
+		return orderState;
+	}
+
+	public void setOrderState(Short orderState) {
+		this.orderState = orderState;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public String getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
 }

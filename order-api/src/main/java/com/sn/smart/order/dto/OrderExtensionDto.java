@@ -2,15 +2,12 @@ package com.sn.smart.order.dto;
 
 import java.io.Serializable;
 
-import lombok.Data;
-
 /**
  * 订单扩展信息
  * 
  * @author snzigod@hotmail.com
  * 
  */
-@Data
 public class OrderExtensionDto implements Serializable {
 
 	/**
@@ -37,5 +34,45 @@ public class OrderExtensionDto implements Serializable {
 	 * 描述。
 	 */
 	private String remark;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
 }

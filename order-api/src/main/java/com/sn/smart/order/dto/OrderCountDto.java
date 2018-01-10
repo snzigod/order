@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import com.sn.smart.order.constants.OrderCountEnum;
 
-import lombok.Data;
-
 /**
  * 单个统计的统计条件
  * 
  * @author snzigod@hotmail.com
  *
  */
-@Data
 public class OrderCountDto implements Serializable {
 
 	/**
@@ -31,5 +28,29 @@ public class OrderCountDto implements Serializable {
 	 * （复合）统计条件
 	 */
 	private OrderCountMultiConditionDto orderCountMultiCondition;
+
+	public OrderCountEnum.CountObject getCountObject() {
+		return countObject;
+	}
+
+	public void setCountObject(OrderCountEnum.CountObject countObject) {
+		this.countObject = countObject;
+	}
+
+	public OrderCountConditionDto getOrderCountCondition() {
+		return orderCountCondition;
+	}
+
+	public void setOrderCountCondition(OrderCountConditionDto orderCountCondition) {
+		this.orderCountCondition = orderCountCondition;
+	}
+
+	public OrderCountMultiConditionDto getOrderCountMultiCondition() {
+		return orderCountMultiCondition;
+	}
+
+	public void setOrderCountMultiCondition(OrderCountMultiConditionDto orderCountMultiCondition) {
+		this.orderCountMultiCondition = orderCountMultiCondition;
+	}
 
 }

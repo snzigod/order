@@ -3,15 +3,12 @@ package com.sn.smart.order.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import lombok.Data;
-
 /**
  * 订单
  * 
  * @author snzigod@hotmail.com
  * 
  */
-@Data
 public class Order {
 	/**
 	 * 订单ID。
@@ -221,5 +218,421 @@ public class Order {
 	 * 修改时间。
 	 */
 	private Date modifyTime;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+
+	public Short getMainOrderFlag() {
+		return mainOrderFlag;
+	}
+
+	public void setMainOrderFlag(Short mainOrderFlag) {
+		this.mainOrderFlag = mainOrderFlag;
+	}
+
+	public Short getHasChildFlag() {
+		return hasChildFlag;
+	}
+
+	public void setHasChildFlag(Short hasChildFlag) {
+		this.hasChildFlag = hasChildFlag;
+	}
+
+	public String getSystemCode() {
+		return systemCode;
+	}
+
+	public void setSystemCode(String systemCode) {
+		this.systemCode = systemCode;
+	}
+
+	public String getSystemName() {
+		return systemName;
+	}
+
+	public void setSystemName(String systemName) {
+		this.systemName = systemName;
+	}
+
+	public String getAreaCode() {
+		return areaCode;
+	}
+
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public String getTradeNo() {
+		return tradeNo;
+	}
+
+	public void setTradeNo(String tradeNo) {
+		this.tradeNo = tradeNo;
+	}
+
+	public String getOrderName() {
+		return orderName;
+	}
+
+	public void setOrderName(String orderName) {
+		this.orderName = orderName;
+	}
+
+	public Short getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(Short orderType) {
+		this.orderType = orderType;
+	}
+
+	public String getOrderTypeName() {
+		return orderTypeName;
+	}
+
+	public void setOrderTypeName(String orderTypeName) {
+		this.orderTypeName = orderTypeName;
+	}
+
+	public String getOrderRemark() {
+		return orderRemark;
+	}
+
+	public void setOrderRemark(String orderRemark) {
+		this.orderRemark = orderRemark;
+	}
+
+	public String getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
+	}
+
+	public String getMerchantName() {
+		return merchantName;
+	}
+
+	public void setMerchantName(String merchantName) {
+		this.merchantName = merchantName;
+	}
+
+	public String getMerchantImgUrl() {
+		return merchantImgUrl;
+	}
+
+	public void setMerchantImgUrl(String merchantImgUrl) {
+		this.merchantImgUrl = merchantImgUrl;
+	}
+
+	public String getBranchId() {
+		return branchId;
+	}
+
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
+	}
+
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
+	public String getBranchImgUrl() {
+		return branchImgUrl;
+	}
+
+	public void setBranchImgUrl(String branchImgUrl) {
+		this.branchImgUrl = branchImgUrl;
+	}
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductImgUrl() {
+		return productImgUrl;
+	}
+
+	public void setProductImgUrl(String productImgUrl) {
+		this.productImgUrl = productImgUrl;
+	}
+
+	public BigDecimal getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(BigDecimal productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public Integer getProductNum() {
+		return productNum;
+	}
+
+	public void setProductNum(Integer productNum) {
+		this.productNum = productNum;
+	}
+
+	public BigDecimal getProductTotalPrice() {
+		return productTotalPrice;
+	}
+
+	public void setProductTotalPrice(BigDecimal productTotalPrice) {
+		this.productTotalPrice = productTotalPrice;
+	}
+
+	public BigDecimal getCouponAmount() {
+		return couponAmount;
+	}
+
+	public void setCouponAmount(BigDecimal couponAmount) {
+		this.couponAmount = couponAmount;
+	}
+
+	public BigDecimal getCarriageFee() {
+		return carriageFee;
+	}
+
+	public void setCarriageFee(BigDecimal carriageFee) {
+		this.carriageFee = carriageFee;
+	}
+
+	public BigDecimal getCashbackAmount() {
+		return cashbackAmount;
+	}
+
+	public void setCashbackAmount(BigDecimal cashbackAmount) {
+		this.cashbackAmount = cashbackAmount;
+	}
+
+	public BigDecimal getGiftCardAmount() {
+		return giftCardAmount;
+	}
+
+	public void setGiftCardAmount(BigDecimal giftCardAmount) {
+		this.giftCardAmount = giftCardAmount;
+	}
+
+	public BigDecimal getRefundAmount() {
+		return refundAmount;
+	}
+
+	public void setRefundAmount(BigDecimal refundAmount) {
+		this.refundAmount = refundAmount;
+	}
+
+	public BigDecimal getActualPaidAmount() {
+		return actualPaidAmount;
+	}
+
+	public void setActualPaidAmount(BigDecimal actualPaidAmount) {
+		this.actualPaidAmount = actualPaidAmount;
+	}
+
+	public Short getOrderState() {
+		return orderState;
+	}
+
+	public void setOrderState(Short orderState) {
+		this.orderState = orderState;
+	}
+
+	public Short getServiceState() {
+		return serviceState;
+	}
+
+	public void setServiceState(Short serviceState) {
+		this.serviceState = serviceState;
+	}
+
+	public Short getSupportExchangeFlag() {
+		return supportExchangeFlag;
+	}
+
+	public void setSupportExchangeFlag(Short supportExchangeFlag) {
+		this.supportExchangeFlag = supportExchangeFlag;
+	}
+
+	public Short getSupportRefundFlag() {
+		return supportRefundFlag;
+	}
+
+	public void setSupportRefundFlag(Short supportRefundFlag) {
+		this.supportRefundFlag = supportRefundFlag;
+	}
+
+	public Short getSupportBillingFlag() {
+		return supportBillingFlag;
+	}
+
+	public void setSupportBillingFlag(Short supportBillingFlag) {
+		this.supportBillingFlag = supportBillingFlag;
+	}
+
+	public Short getSupportSellFlag() {
+		return supportSellFlag;
+	}
+
+	public void setSupportSellFlag(Short supportSellFlag) {
+		this.supportSellFlag = supportSellFlag;
+	}
+
+	public Short getBillingFlag() {
+		return billingFlag;
+	}
+
+	public void setBillingFlag(Short billingFlag) {
+		this.billingFlag = billingFlag;
+	}
+
+	public Short getSellFlag() {
+		return sellFlag;
+	}
+
+	public void setSellFlag(Short sellFlag) {
+		this.sellFlag = sellFlag;
+	}
+
+	public Short getSupportServiceFlag() {
+		return supportServiceFlag;
+	}
+
+	public void setSupportServiceFlag(Short supportServiceFlag) {
+		this.supportServiceFlag = supportServiceFlag;
+	}
+
+	public Short getServiceFlag() {
+		return serviceFlag;
+	}
+
+	public void setServiceFlag(Short serviceFlag) {
+		this.serviceFlag = serviceFlag;
+	}
+
+	public Short getEvaluateFlag() {
+		return evaluateFlag;
+	}
+
+	public void setEvaluateFlag(Short evaluateFlag) {
+		this.evaluateFlag = evaluateFlag;
+	}
+
+	public Integer getProductUserNum() {
+		return productUserNum;
+	}
+
+	public void setProductUserNum(Integer productUserNum) {
+		this.productUserNum = productUserNum;
+	}
+
+	public String getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
+
+	public String getCreateUserName() {
+		return createUserName;
+	}
+
+	public void setCreateUserName(String createUserName) {
+		this.createUserName = createUserName;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Short getOrderSource() {
+		return orderSource;
+	}
+
+	public void setOrderSource(Short orderSource) {
+		this.orderSource = orderSource;
+	}
+
+	public String getLogisticsId() {
+		return logisticsId;
+	}
+
+	public void setLogisticsId(String logisticsId) {
+		this.logisticsId = logisticsId;
+	}
+
+	public String getModifyUser() {
+		return modifyUser;
+	}
+
+	public void setModifyUser(String modifyUser) {
+		this.modifyUser = modifyUser;
+	}
+
+	public String getModifyUserName() {
+		return modifyUserName;
+	}
+
+	public void setModifyUserName(String modifyUserName) {
+		this.modifyUserName = modifyUserName;
+	}
+
+	public Date getModifyTime() {
+		return modifyTime;
+	}
+
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
 
 }

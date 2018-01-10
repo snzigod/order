@@ -3,15 +3,12 @@ package com.sn.smart.order.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.Data;
-
 /**
  * 订单日志
  * 
  * @author snzigod@hotmail.com
  * 
  */
-@Data
 public class OrderLogDto implements Serializable {
 
 	/**
@@ -54,5 +51,77 @@ public class OrderLogDto implements Serializable {
 	 * 创建时间（只读）。
 	 */
 	private Date createTime;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public Short getServiceState() {
+		return serviceState;
+	}
+
+	public void setServiceState(Short serviceState) {
+		this.serviceState = serviceState;
+	}
+
+	public Short getOrderState() {
+		return orderState;
+	}
+
+	public void setOrderState(Short orderState) {
+		this.orderState = orderState;
+	}
+
+	public Short getOperateServiceState() {
+		return operateServiceState;
+	}
+
+	public void setOperateServiceState(Short operateServiceState) {
+		this.operateServiceState = operateServiceState;
+	}
+
+	public Short getOperateState() {
+		return operateState;
+	}
+
+	public void setOperateState(Short operateState) {
+		this.operateState = operateState;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public String getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
 }

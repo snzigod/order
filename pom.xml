@@ -2,17 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.sn.smart</groupId>
-		<artifactId>smart-service-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
 	<groupId>com.sn.smart.order</groupId>
 	<artifactId>order</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>订单</name>
 	<description>订单处理、订单统计。</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sn.smart</groupId>
+			<artifactId>smart-service-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 	<modules>
 		<module>order-api</module>
 		<module>order-service</module>
